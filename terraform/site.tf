@@ -23,7 +23,7 @@ resource "azurerm_storage_blob" "index" {
   storage_account_name   = azurerm_storage_account.site.name
   storage_container_name = azurerm_storage_container.web.name
   type                   = "Block"
-  source                 = "../src/index.html"
+  source_content         = file("${path.module}/../src/index.html")
   content_type           = "text/html"
 
 }
