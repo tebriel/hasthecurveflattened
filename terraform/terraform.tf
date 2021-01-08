@@ -1,14 +1,20 @@
 terraform {
-  required_version = ">= 0.12"
+  required_version = ">= 0.14"
 }
 
 # Configure the Azure Provider
 provider "azurerm" {
-  version = "=2.2.0"
   features {}
 }
 
 terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=2.42.0"
+    }
+  }
+
   backend "azurerm" {
     resource_group_name  = "terraform"
     storage_account_name = "tebrielterraformstate"
